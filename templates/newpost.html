@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %} Uusi Keskustelu {% endblock %}
+{% block content %}
+
+<h1>Luo uusi keskustelu</h1>
+<hr>
+<form action="/newpost" method="post">
+
+Otsikko: <br>
+<textarea name="title" rows="0" cols="100"> 
+Otsikko tähän 
+</textarea>
+<hr>
+Teksti: <br>
+<textarea name="body" rows="10" cols="100">
+Kirjoita leipäteksti
+</textarea>
+
+<input type="submit" value="Aloita keskustelu!">
+
+</form>
+
+{% endblock %}
