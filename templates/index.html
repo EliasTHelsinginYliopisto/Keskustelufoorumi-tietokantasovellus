@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %} Etusivu {% endblock %}
+{% block content %}
+
+<h1>Etusivu</h1>
+<hr>
+<h1>Keskusteluja:</h1>
+<hr>
+{% for post in posts %}
+<a href="/viewpost/{{ post.id }}">{{ post.title }}</a> | Omistaja: {{ post.poster_name }}
+<hr>
+{% endfor %}
+
+
+{% endblock %}
