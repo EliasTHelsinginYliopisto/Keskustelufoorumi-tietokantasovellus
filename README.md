@@ -1,5 +1,7 @@
 # Keskustelufoorumi-tietokantasovellus
 
+[Keskustelufoorumi herokussa](https://gentle-journey-62073.herokuapp.com/)
+
 ## Tavoitteet
  Tietokantasovellusprojekti on keskustelufoorumi joka tulee sisältämään seuraavat toiminnot:
  1. Käyttäjä kykenee luomaan tunnuksen ja salasanan ja kirjautumaan niillä sivustolle
