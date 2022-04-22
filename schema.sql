@@ -7,7 +7,6 @@ CREATE TABLE users (
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     poster_id INTEGER REFERENCES users,
-    poster_name TEXT, --Temporary column, remove after implementing users
     title TEXT,
     body TEXT
 );
@@ -17,4 +16,17 @@ CREATE TABLE comments (
     commenter_id INTEGER REFERENCES users,
     post_id INTEGER REFERENCES posts,
     comment TEXT
+);
+
+CREATE TABLE ratings (
+    id SERIAL PRIMARY KEY,
+    comment_id INTEGER REFERENCES comments,
+    post_id INTEGER REFERENCES posts,
+    type BOOLEAN
+);
+
+CREATE TABLE messages (
+    id SERIAL PRIMARY KEY,
+    sender_id INTEGER REFERENCES users,
+    reciever_id INTEGER REFERENCES users
 );

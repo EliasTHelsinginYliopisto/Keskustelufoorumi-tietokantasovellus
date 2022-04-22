@@ -7,7 +7,7 @@
 <h1>Keskusteluja:</h1>
 <hr>
 {% for post in posts %}
-<a href="/viewpost/{{ post.id }}">{{ post.title }}</a> | Omistaja: {{ post.poster_name }}
+<a href="/viewpost/{{ post.id }}">{{ post.title }}</a> | Omistaja: {{ post.username }}
 <hr>
 {% endfor %}
 

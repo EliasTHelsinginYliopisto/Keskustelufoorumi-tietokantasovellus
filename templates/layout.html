@@ -3,16 +3,18 @@
 <h1>Keskustelufoorumi</h1>
 <hr>
 <p> <a href="/">Etusivu</a> <a href="/newpost">Luo uusi keskustelu</a> </p>
-<!--TODO: USER DATABASE LOGIN HERE-->
-{% if session.username %}
-Kirjauduttu sisään. Käyttäjä: {{ session.username }} 
+
+{% if session.user_username %}
+Kirjauduttu sisään. Käyttäjä: {{ session.user_username }} 
 <a href="/logout">Kirjaudu ulos</a>
+
 {% else %}
-<form action="/login" method="POST">
-Käyttäjänimi:
-<input type="text" name="username">
-Salasana: 
-<input type="text" name="password">
-<input type="submit" value="OK"
+Ei kirjauduttu sisään. 
+<a href="/login">Kirjaudu Sisään.</a> 
+<a href="/register">Rekisteröidy.</a>
+
 {% endif %}
+
+<hr>
+
 {% block  content%}{% endblock %}
