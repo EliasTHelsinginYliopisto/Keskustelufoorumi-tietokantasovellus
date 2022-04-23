@@ -8,6 +8,12 @@
 
 <br>
 Lähettänyt: {{ post.username }}
+<br>
+Tykkäykset: {{ post.likes }}
+
+<form action="/rate" method="post">
+    <input type="submit" name="upvote_post" value="Tykkää">
+</form>
 <hr>
 
 <h2>Kommentit:</h2>

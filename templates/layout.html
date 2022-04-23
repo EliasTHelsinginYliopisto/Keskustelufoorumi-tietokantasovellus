@@ -5,13 +5,13 @@
 <p> <a href="/">Etusivu</a> <a href="/newpost">Luo uusi keskustelu</a> </p>
 
 {% if session.user_username %}
-Kirjauduttu sisään. Käyttäjä: {{ session.user_username }} 
-<a href="/logout">Kirjaudu ulos</a>
+    Kirjauduttu sisään. Käyttäjä: {{ session.user_username }} 
+    <a href="/logout">Kirjaudu ulos</a>
 
 {% else %}
-Ei kirjauduttu sisään. 
-<a href="/login">Kirjaudu Sisään.</a> 
-<a href="/register">Rekisteröidy.</a>
+    Ei kirjauduttu sisään. 
+    <a href="/login">Kirjaudu Sisään.</a> 
+    <a href="/register">Rekisteröidy.</a>
 
 {% endif %}
 

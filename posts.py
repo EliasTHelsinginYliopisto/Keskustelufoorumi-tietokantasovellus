@@ -2,8 +2,11 @@ from db import db
 
 
 def get_posts_index():
-    sql = """SELECT P.id, U.username, P.title FROM posts P, users U
-            WHERE U.id = P.poster_id"""
+    sql = """SELECT P.id, U.username, P.title, COUNT(R) as likes 
+            FROM 
+            users U LEFT JOIN posts P ON U.id = P.poster_id 
+            LEFT JOIN ratings R ON P.id = R.post_id
+            GROUP BY P.id, U.username, P.title"""
     return db.session.execute(sql).fetchall()
 
 def create_new_post(title, body, poster_id):
@@ -19,8 +22,12 @@ def create_new_post(title, body, poster_id):
 
 def get_post_content(post_id):
     id = post_id
-    sql = """SELECT P.title, P.body, U.username
-            FROM posts P, users U  WHERE P.id=:id"""
+    sql = """SELECT P.title, P.body, U.username, COUNT(R) as likes
+            FROM 
+            users U, posts P
+            LEFT JOIN ratings R ON P.id = R.post_id
+            WHERE P.id=:id
+            GROUP BY P.title, P.body, U.username"""
     result = db.session.execute(sql, {"id":id}).fetchone()
 
     return result

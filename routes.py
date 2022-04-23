@@ -1,7 +1,7 @@
 from crypt import methods
 from app import app
 from flask import render_template, request, session, redirect
-import posts, users, comments
+import posts, users, comments, ratings
 
 @app.route("/")
 def index():
@@ -69,7 +69,17 @@ def comment():
     post_id = session["post_id"]
     commenter_id = session["user_id"]
     if comments.create_new_comment(commenter_id, post_id, comment):
-        print("5")
         return redirect("/viewpost/"+str(post_id))
     else:
         return render_template("error.html", message="Kommentointi epäonnistui")
+
+
+@app.route("/rate", methods=["POST"])
+def rate():
+    rater_id = session["user_id"]
+    post_id = session["post_id"]
+    if request.form["upvote_post"]:
+        ratings.create_rating_on_post(rater_id,post_id)
+    return redirect("/viewpost/"+str(post_id))
+
+

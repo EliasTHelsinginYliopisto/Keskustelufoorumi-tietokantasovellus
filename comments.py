@@ -11,10 +11,8 @@ def create_new_comment(commenter_id, post_id, comment):
         sql = """INSERT INTO comments (commenter_id, post_id, comment) 
                 VALUES (:commenter_id, :post_id, :comment)"""
         db.session.execute(sql, {"commenter_id":commenter_id, "post_id":post_id, "comment":comment})
-        print("muttei tähän?")
         db.session.commit()
     except:
-        print("2")
         return False
 
     return True

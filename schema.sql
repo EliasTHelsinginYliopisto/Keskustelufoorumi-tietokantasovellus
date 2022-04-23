@@ -21,8 +21,8 @@ CREATE TABLE comments (
 CREATE TABLE ratings (
     id SERIAL PRIMARY KEY,
     comment_id INTEGER REFERENCES comments,
-    post_id INTEGER REFERENCES posts,
-    type BOOLEAN
+    rater_id INTEGER REFERENCES users,
+    post_id INTEGER REFERENCES posts
 );
 
 CREATE TABLE messages (
