@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %} Uusi Keskustelu {% endblock %}
+{% block content %}
+<form action="/login" method="post">
+
+<p>Käyttäjänimi: <input type="text" name="username"></p>
+
+<p>Salasana: <input type="text" name="password"></p>
+
+<input type="submit" value="Kirjaudu sisään">
+</form>
+
+Luo uusi käyttäjä: <a href="/register">Rekisteröidy</a>
+{% endblock %}

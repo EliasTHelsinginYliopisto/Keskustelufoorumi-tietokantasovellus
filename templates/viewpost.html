@@ -1,13 +1,40 @@
 {% extends "layout.html" %}
-{% block title %} Uusi Keskustelu {% endblock %}
+{% block title %} {{ post.title }} {% endblock %}
 {% block content %}
 
-<h1>{{title}}</h1>
+<h1>{{ post.title }}</h1>
 <hr>
-{{body}} <br> 
+{{ post.body }} <br> 
+
 <br>
-Lähettänyt: {{poster}}
+Lähettänyt: {{ post.username }}
+<br>
+Tykkäykset: {{ post.likes }}
+
+<form action="/rate" method="post">
+    <input type="submit" name="upvote_post" value="Tykkää">
+</form>
 <hr>
-<h2>Kommentit: (TODO)</h2>
+
+<h2>Kommentit:</h2>
+<hr>
+
+{% for comment in comments %}
+{{ comment.username }} : {{ comment.comment }}
+<hr>
+{% endfor %}
+
+<h2> Lisää Kommentti </h2>
+<hr>
+
+<form action="/comment" method="post">
+<textarea name="comment" rows="0" cols="100"> 
+Kommentti
+</textarea>
+
+<br>
+<input type="submit" value="Kommentoi!">
+
+</form>
 
 {% endblock %}
