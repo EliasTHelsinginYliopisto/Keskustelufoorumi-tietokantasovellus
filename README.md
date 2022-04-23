@@ -1,8 +1,6 @@
 # Keskustelufoorumi-tietokantasovellus
 
 [Keskustelufoorumi herokussa](https://gentle-journey-62073.herokuapp.com/)
-**HUOM: Heroku ei tällä hetkellä suostu näyttämään muuta kuin etsusivun. selvitän asiaa**
-
 
 ## Tavoitteet
  Tietokantasovellusprojekti on keskustelufoorumi joka tulee sisältämään seuraavat toiminnot:
