@@ -1,7 +1,6 @@
 # Keskustelufoorumi-tietokantasovellus
 
 [Keskustelufoorumi herokussa](https://gentle-journey-62073.herokuapp.com/)
-**HUOM: Heroku ei tällä hetkellä suostu näyttämään muuta kuin etsusivun. selvitän asiaa**
 
 
 ## Tavoitteet
@@ -18,14 +17,16 @@
 2. Kirjautunut käyttäjä voi luoda uuden keskustelun
 3. luodut keskustelut näkyvät etusivulla ja jokaiselle on oma sivu
 4. Keskuleuihin voi kommentoida, ja niitä voi tykätä
+5. Käyttäjä voi tehdä yksitisen pikakeskustelun usean toisen käyttäjän kanssa
+6. käyttäjä voi hakea keskusteluja
 
 
 ## TODO
-1. kommenttejen luominen keskusteluihin
-2. tietoturvatoimenpiteet
-3. Keskustelujen ja kommenttejen muokkaus
-4. kommenttejen tykkääminen
-5. yksityisviestit
-6. keskustelujen hakeminen
-7. keskustelun näköoikeudet
-8. ylläpitäjän toiminnot
+1. tietoturvatoimenpiteet - estä kirjautumattomien oikeudet
+2. Keskustelujen ja kommenttejen muokkaus ja näkyvyys
+3. kommenttejen tykkääminen
+4. lisää placeholderit
+6. ylläpitäjän toiminnot/käyttjäroolit
+7. sisti koodia, lisää virheviestit
+8. estä tyhjät ja ylipitkät lomakkeet
+

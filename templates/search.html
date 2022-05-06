@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
-{% block title %} Etusivu {% endblock %}
+{% block title %} Search {% endblock %}
 {% block content %}
+<h1>Haku termillä {{ search_term }}</h1>
 
-<h1>Etusivu</h1>
 <hr>
-<h1>Keskusteluja:</h1>
-<hr>
-{% for post in posts %}
+
+{% for post in results %}
     <a href="/viewpost/{{ post.id }}">{{ post.title }}</a> | 
     Omistaja: {{ post.username }} 
     
@@ -17,8 +16,7 @@
     <hr>
 {% endfor %}
 
-<p><h2>Hae keskusteluja</h2></p>
-<hr>
+<h2>Hae Keskusteluja!</h2>
 
 <form action="/searchpost" method="post">
     <textarea name="search_term" placeholder="Hakutermi" rows="0" cols="100"> </textarea>

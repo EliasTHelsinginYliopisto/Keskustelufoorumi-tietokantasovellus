@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %} Uusi Yksityiskeskustelu {% endblock %}
+{% block content %}
+
+<h1>Luo uusi yksityiskeskustelu</h1>
+<hr>
+<form action="/newgroup" method="post">
+Nimi: <br>
+<textarea name="name" rows="0" cols="100"> 
+Yksityiskeskustelun nimi
+</textarea> <br>
+
+Nimi: <br>
+<textarea name="members" rows="0" cols="100"> 
+Erota jäsenet käyttämällä ";" näppäintä ilman välilyöntejä. esim: käyttäjä1;käyttäjä2;3;jne
+</textarea> <br>
+
+<input type="submit" value="Aloita yksityiskeskustelu">
+</form>
+
+{% endblock %}

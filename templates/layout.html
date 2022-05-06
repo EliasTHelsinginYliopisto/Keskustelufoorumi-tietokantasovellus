@@ -2,11 +2,12 @@
 <title>Keskustelufoorumi harjoitustyö: </title>
 <h1>Keskustelufoorumi</h1>
 <hr>
-<p> <a href="/">Etusivu</a> <a href="/newpost">Luo uusi keskustelu</a> </p>
+<p> <a href="/">Etusivu</a></p>
 
 {% if session.user_username %}
     Kirjauduttu sisään. Käyttäjä: {{ session.user_username }} 
-    <a href="/logout">Kirjaudu ulos</a>
+    <p><a href="/logout">Kirjaudu ulos</a></p>
+    <p><a href="/newpost">Luo uusi keskustelu</a> <a href="/messages/{{ session.user_id }}">Yksityiskeskustelut</a></p>
 
 {% else %}
     Ei kirjauduttu sisään. 

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %} Yksityiskeskustelut {% endblock %}
+{% block content %}
+<h1>Yksityiskeskustelut:</h1>
+<hr>
+{% for group in groups %}
+<a href="/group/{{ group.id }}">{{ group.name }}</a>
+<hr>
+{% endfor %}
+
+<a href="/newgroup">Luo uusi yksityiskeskustelu</a>
+
+
+{% endblock %}

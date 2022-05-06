@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %} {{ name }} {% endblock %}
+{% block content %}
+
+<h1>{{ name }}</h1>
+<hr>
+Jäsenet: 
+{% for member in members %}
+{{ member.username }},
+{% endfor %}
+<hr>
+
+{% for message in messages %}
+{{ message.username }}: {{ message.content }}
+<hr>
+{% endfor %}
+
+<h2> Vastaa keskusteluun: </h2>
+<hr>
+
+<form action="/message" method="POST">
+<textarea name="message" rows="0" cols="100"> 
+Viesti
+</textarea>
+
+<br>
+<input type="submit" value="Lähetä Viesti!">
+
+</form>
+
+{% endblock %}
