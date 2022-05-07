@@ -7,7 +7,11 @@
 {% if session.user_username %}
     Kirjauduttu sisään. Käyttäjä: {{ session.user_username }} 
     <p><a href="/logout">Kirjaudu ulos</a></p>
-    <p><a href="/newpost">Luo uusi keskustelu</a> <a href="/messages/{{ session.user_id }}">Yksityiskeskustelut</a></p>
+    <p>
+        <a href="/newpost">Luo uusi keskustelu</a> 
+        <a href="/messages/{{ session.user_id }}">Yksityiskeskustelut</a>
+        <a href="/myposts">Hallitse keskustelujani</a>
+    </p>
 
 {% else %}
     Ei kirjauduttu sisään. 

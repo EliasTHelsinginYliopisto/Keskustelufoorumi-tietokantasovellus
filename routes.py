@@ -32,7 +32,8 @@ def register():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        if users.register(username, password):
+        role = request.form["role"]
+        if users.register(username, password, role):
             return redirect("/")
         else:
             return render_template("error.html", message="Rekisteröinti ei onnistunut. Käyttäjänimi saattaa olla käytössä")
@@ -121,4 +122,33 @@ def searchpost():
     search_term = request.form["search_term"]
     return redirect("/search/"+str(search_term))
 
+@app.route("/edit", methods=["GET", "POST"])
+def edit():
+    if request.method == "GET":
+        post_id = session["post_id"]
+        content = posts.get_post_content(post_id)
+        return render_template("edit.html", post_id = post_id, content = content)
+    if request.method == "POST":
+        body = request.form["body"]
+        post_id = session["post_id"]
+        post_id = posts.edit_post(post_id, body)
+        return redirect("/viewpost/"+str(post_id))
+
+@app.route("/hidepost", methods=["POST"])
+def hidepost():
+    post_id = request.form["post_id"]
+    posts.toggle_post_visibility(post_id)
+    return redirect("/myposts")
+
+@app.route("/deletepost", methods=["POST"])
+def deletepost():
+    post_id = request.form["post_id"]
+    posts.delete_post(post_id)
+    return redirect("/")
+
+@app.route("/myposts")
+def myposts():
+    user_id = session["user_id"]
+    content = posts.get_my_posts(user_id)
+    return render_template("myposts.html", content = content)
     

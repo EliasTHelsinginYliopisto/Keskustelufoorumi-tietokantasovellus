@@ -24,7 +24,7 @@
 ## TODO
 1. tietoturvatoimenpiteet - estä kirjautumattomien oikeudet
 2. Keskustelujen ja kommenttejen muokkaus ja näkyvyys
-3. kommenttejen tykkääminen
+3. kommenttejen tykkääminen. ehkä
 4. lisää placeholderit
 6. ylläpitäjän toiminnot/käyttjäroolit
 7. sisti koodia, lisää virheviestit

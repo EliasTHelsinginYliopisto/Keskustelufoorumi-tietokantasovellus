@@ -10,7 +10,7 @@ CREATE TABLE posts (
     poster_id INTEGER REFERENCES users,
     title TEXT,
     body TEXT,
-    visible INTEGER
+    visible INTEGER -- 0 = no, 1 = yes, 2 = deleted
 );
 
 CREATE TABLE comments (
@@ -18,7 +18,7 @@ CREATE TABLE comments (
     commenter_id INTEGER REFERENCES users,
     post_id INTEGER REFERENCES posts,
     comment TEXT,
-    visible INTEGER
+    visible INTEGER -- 0 = no, 1 = yes, 2 = deleted
 );
 
 CREATE TABLE ratings (
