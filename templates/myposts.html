@@ -16,17 +16,23 @@
         <form action="/hidepost" method="post" style="float: left;">
             <input type="hidden" name="post_id" value="{{ post.id }}">
             <input type="submit" value="pilloita">
+
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         </form>
     {% else %}
     <form action="/hidepost" method="post" style="float: left;">
         <input type="hidden" name="post_id" value="{{ post.id }}">
         <input type="submit" value="julkaise">
+
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
     </form>
     {% endif %}
     
         <form action="/deletepost" method="post" style="float: left;">
             <input type="hidden" name="post_id" value="{{ post.id }}">
             <input type="submit" value="poista">
+
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         </form>
     <hr>
 

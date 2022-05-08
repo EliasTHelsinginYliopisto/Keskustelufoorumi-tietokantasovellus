@@ -19,13 +19,12 @@ Jäsenet:
 <hr>
 
 <form action="/message" method="POST">
-<textarea name="message" rows="0" cols="100"> 
-Viesti
-</textarea>
+<textarea name="message" rows="0" cols="100" placeholder="Kirjoita viesti tähän"></textarea>
 
 <br>
 <input type="submit" value="Lähetä Viesti!">
 
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 
 {% endblock %}

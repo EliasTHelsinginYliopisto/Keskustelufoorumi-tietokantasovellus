@@ -7,17 +7,16 @@
 <form action="/newpost" method="post">
 
 Otsikko: <br>
-<textarea name="title" rows="0" cols="100" placeholder="Otsikko tähän"> 
-</textarea>
+<textarea name="title" rows="0" cols="100" placeholder="Otsikko tähän"></textarea>
 
 <hr>
 Teksti: <br>
-<textarea name="body" rows="10" cols="100" placeholder="Kirjoita leipäteksti">
-</textarea>
+<textarea name="body" rows="10" cols="100" placeholder="Kirjoita leipäteksti"></textarea>
 
 <br>
 <input type="submit" value="Aloita keskustelu!">
 
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 
 {% endblock %}

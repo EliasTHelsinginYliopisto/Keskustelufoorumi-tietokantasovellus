@@ -10,6 +10,13 @@ def create_group(name, members, owner_id):
     db.session.execute(sql, {"owner_id":owner_id, "group_id":group_id})
 
     for username in members.split(";"):
+        sql = """SELECT COUNT(*)
+                FROM members M, groups G, users U
+                WHERE G.id=:group_id AND U.username=:username"""
+        in_group = db.session.execute(sql, {"username":username, "group_id":group_id}).fetchone()[0]
+        if in_group > 0:
+                continue
+
         sql = """INSERT INTO members (member_id, group_id, role)
                 VALUES (
                 (SELECT id FROM users WHERE username=:username), :group_id, 0)"""

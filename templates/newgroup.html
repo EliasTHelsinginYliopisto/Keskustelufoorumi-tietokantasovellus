@@ -6,16 +6,14 @@
 <hr>
 <form action="/newgroup" method="post">
 Nimi: <br>
-<textarea name="name" rows="0" cols="100"> 
-Yksityiskeskustelun nimi
-</textarea> <br>
+<textarea name="name" rows="0" cols="100" placeholder="Yksityiskeskustelun nimi"></textarea><br>
 
 Nimi: <br>
-<textarea name="members" rows="0" cols="100"> 
-Erota jäsenet käyttämällä ";" näppäintä ilman välilyöntejä. esim: käyttäjä1;käyttäjä2;3;jne
-</textarea> <br>
+<textarea name="members" rows="0" cols="100" placeholder="Erota jäsenet käyttämällä ';' näppäintä ilman välilyöntejä. esim: käyttäjä1;käyttäjä2;3;jne"></textarea> <br>
 
 <input type="submit" value="Aloita yksityiskeskustelu">
+
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block title %} Muokkaa {% endblock %}
 {% block content %}
-<h1>Muokkaa keskustelua {{ content.title }}</h1>
+<h1>Muokkaa keskustelua: {{ content.title }}</h1>
 <hr>
 
 <form action="/edit" method="post">
@@ -15,6 +15,7 @@ Teksti: <br>
 <br>
 <input type="submit" value="Muokkaa">
 
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 
 

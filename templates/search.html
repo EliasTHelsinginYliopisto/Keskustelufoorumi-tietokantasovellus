@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block title %} Search {% endblock %}
 {% block content %}
-<h1>Haku termillä {{ search_term }}</h1>
+<h1>Haku termillä "{{ search_term }}"</h1>
 
 <hr>
 
@@ -19,7 +19,7 @@
 <h2>Hae Keskusteluja!</h2>
 
 <form action="/searchpost" method="post">
-    <textarea name="search_term" placeholder="Hakutermi" rows="0" cols="100"> </textarea>
+    <textarea name="search_term" placeholder="Hakutermi" rows="0" cols="100"></textarea>
 
     <br>
 <input type="submit" value="Hae!">
