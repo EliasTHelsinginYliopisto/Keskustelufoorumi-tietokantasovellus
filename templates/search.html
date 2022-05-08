@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %} Search {% endblock %}
+{% block content %}
+<h1>Haku termillä "{{ search_term }}"</h1>
+
+<hr>
+
+{% for post in results %}
+    <a href="/viewpost/{{ post.id }}">{{ post.title }}</a> | 
+    Omistaja: {{ post.username }} 
+    
+    {% if post.likes %}
+        | Tykkäykset: {{ post.likes }} 
+    {% endif %}
+    
+    <hr>
+{% endfor %}
+
+<h2>Hae Keskusteluja!</h2>
+
+<form action="/searchpost" method="post">
+    <textarea name="search_term" placeholder="Hakutermi" rows="0" cols="100"></textarea>
+
+    <br>
+<input type="submit" value="Hae!">
+
+</form>
+
+
+{% endblock %}

@@ -10,31 +10,49 @@
 Lähettänyt: {{ post.username }}
 <br>
 Tykkäykset: {{ post.likes }}
+<br>
+{% if post.userid == session.user_id %}
+<a href="/edit">Muokkaa</a>
+{% endif %}
 
+{% if session.user_username %}
 <form action="/rate" method="post">
     <input type="submit" name="upvote_post" value="Tykkää">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
+{% endif %}
+
 <hr>
 
 <h2>Kommentit:</h2>
 <hr>
 
 {% for comment in comments %}
-{{ comment.username }} : {{ comment.comment }}
+| {{ comment.username }} : {{ comment.comment }}
+
+{% if (comment.user_id == session.user_id or session.user_role == 1) %}
+    <form action="/deletecomment" method="post" style="float: left;">
+        <input type="hidden" name="comment_id" value="{{ comment.comment_id }}">
+        <input type="submit" value="poista">
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+    </form>
+{% endif %}
+
 <hr>
 {% endfor %}
 
+{% if session.user_username %}
 <h2> Lisää Kommentti </h2>
 <hr>
 
 <form action="/comment" method="post">
-<textarea name="comment" rows="0" cols="100"> 
-Kommentti
-</textarea>
+<textarea name="comment" rows="0" cols="100" placeholder="Kommentti"></textarea>
 
 <br>
 <input type="submit" value="Kommentoi!">
 
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
+{% endif %}
 
 {% endblock %}
